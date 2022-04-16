@@ -1,0 +1,44 @@
+{
+  "name": "micro-fe-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"pnpm serve --filter ./packages/app-container --filter ./packages/module-app-vue",
+    "lint:fix":"pnpm lint --filter ./packages/main-app --filter ./packages/module-app-vue",
+    "dev:main":"pnpm --filter ./packages/app-container serve",
+    "dev:app1":"pnpm serve --filter ./packages/module-app-vue",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuisemo/micro-FE-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuisemo/micro-FE-project/issues"
+  },
+  "homepage": "https://github.com/tuisemo/micro-FE-project#readme",
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0",
+    "prettier": "^2.6.2",
+    "vue-template-compiler": "^2.6.14"
+  }  
+}
