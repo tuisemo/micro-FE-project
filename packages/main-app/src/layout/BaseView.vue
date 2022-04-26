@@ -5,15 +5,19 @@
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
         <a-menu-item key="1">
           <user-outlined />
-          <span>nav 1</span>
+          <Alink to="/"><span>home</span></Alink>
         </a-menu-item>
         <a-menu-item key="2">
           <video-camera-outlined />
-          <span>nav 2</span>
+          <Alink to="/about"><span>about</span></Alink>
         </a-menu-item>
         <a-menu-item key="3">
           <upload-outlined />
-          <span>nav 3</span>
+          <Alink to="/microApp"><span>主应用路由</span></Alink>
+        </a-menu-item>
+        <a-menu-item key="4">
+          <upload-outlined />
+          <Alink to="/microApp/vue"><span>子应用</span></Alink>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -38,20 +42,22 @@
           minHeight: '280px',
         }"
       >
-        Content
+      <router-view></router-view>
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
-<script lang="ts">
+<script>
 import {
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-} from "@ant-design/icons-vue";
-import { defineComponent, ref } from "vue";
+} from '@ant-design/icons-vue';
+import { defineComponent, ref } from 'vue';
+import Alink from '../components/Alink/index.vue';
+
 export default defineComponent({
   components: {
     UserOutlined,
@@ -59,17 +65,22 @@ export default defineComponent({
     UploadOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    Alink,
   },
+
   setup() {
     return {
-      selectedKeys: ref<string[]>(["1"]),
-      collapsed: ref<boolean>(false),
+      selectedKeys: ref(['1']),
+      collapsed: ref(false),
     };
   },
 });
 </script>
-<style>
-#components-layout-demo-custom-trigger .trigger {
+<style lang="scss" scoped>
+.ant-layout-sider {
+  height: 100vh;
+}
+.trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
@@ -77,11 +88,11 @@ export default defineComponent({
   transition: color 0.3s;
 }
 
-#components-layout-demo-custom-trigger .trigger:hover {
+.trigger:hover {
   color: #1890ff;
 }
 
-#components-layout-demo-custom-trigger .logo {
+.logo {
   height: 32px;
   background: rgba(255, 255, 255, 0.3);
   margin: 16px;
